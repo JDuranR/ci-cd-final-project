@@ -10,3 +10,26 @@ spec:
         #!/bin/sh
         echo "Cleaning up workspace..."
         rm -rf /workspace/* || true
+
+---
+
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: nose-task
+spec:
+  steps:
+    - name: setup-python
+      image: python:3.10-slim
+      script: |
+        #!/bin/sh
+        echo "Setting up Python environment..."
+        python -m pip install --upgrade pip
+        pip install nose
+
+    - name: run-nose-tests
+      image: python:3.10-slim
+      script: |
+        #!/bin/sh
+        echo "Running tests with nose..."
+        nosetests --with-xunit
