@@ -28,5 +28,5 @@ jobs:
 
       - name: Run unit test with nose
         run: |
-          nose .
+          nose
 
