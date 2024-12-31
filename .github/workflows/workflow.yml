@@ -21,6 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8
           pip install nose
+          pip install nose-spec
 
       - name: Lint with Flake8
         run: |
