@@ -28,5 +28,4 @@ jobs:
 
       - name: Run unit test with nose
         run: |
-          nose
-
+          python -m nose
